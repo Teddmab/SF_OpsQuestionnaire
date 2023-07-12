@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form to Salesforce</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Basis Grotesque Pro",-apple-system,BlinkMacSystemFont, Avenir Next,Avenir,Helvetica,sans-serif;
+            position: relative;
+            --grid-gap: 20px;
+            --color-dark: #020309;
+            --color-disabled: #b9c2dd;
+            --color-primary: #2846c0;
+            --color-piccolo: #0cd664;
+            --color-brand: #09b2de;
+        }
+        .container, h1, em {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .input-group button {
+            background-color: var(--color-brand);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .input-group button:disabled {
+            background-color: var(--color-disabled);
+        }
+    </style>
+</head>
+<body>
+    <h1>Hub88 - Operator Questionnaire</h1>
+    <em>Connected to https://yologroup--teddy.sandbox.lightning.force.com </em>
+    <div class="container">
+        <form action="/submit" method="post" id="questionnaire-form">
+            <!-- Client Details -->
+            <div class="input-group">
+                <label for="Company_Name__c">Company Name:</label>
+                <input type="text" id="Company_Name__c" name="Company_Name__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Legal_Address__c">Legal Address:</label>
+                <input type="text" id="Legal_Address__c" name="Legal_Address__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Brand_Name__c">Brand Name:</label>
+                <input type="text" id="Brand_Name__c" name="Brand_Name__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Operating_countries_regions__c">Operating Countries/Regions:</label>
+                <input type="text" id="Operating_countries_regions__c" name="Operating_countries_regions__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Juridiction__c">Jurisdiction:</label>
+                <input type="text" id="Juridiction__c" name="Juridiction__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Registration_number__c">Registration Number:</label>
+                <input type="text" id="Registration_number__c" name="Registration_number__c" required>
+            </div>
+
+            <!-- Staging Configuration -->
+           
+            <div class="input-group">
+                <label for="Wallet_API_Type__c">Wallet API Type:</label>
+                <select id="Wallet_API_Type__c" name="Wallet_API_Type__c" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="Seamless">Seamless</option>
+                    <option value="Transfer">Transfer</option>
+                </select>
+            </div>
+            <hr />
+            <h3 style="color:#2846c0">Staging Configuration</h3>
+            <div class="input-group">
+                <label for="Test_Endpoint__c">Test Endpoint:</label>
+                <input type="text" id="Test_Endpoint__c" name="Test_Endpoint__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Test_Server_IPs__c">Test Server IPs:</label>
+                <input type="text" id="Test_Server_IPs__c" name="Test_Server_IPs__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Test_Frontend_URL__c">Test Frontend URL:</label>
+                <input type="text" id="Test_Frontend_URL__c" name="Test_Frontend_URL__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Test_account__c">Test Account:</label>
+                <input type="text" id="Test_account__c" name="Test_account__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Supported_currencies__c">Supported Currencies:</label>
+                <input type="text" id="Supported_currencies__c" name="Supported_currencies__c" required>
+            </div>
+
+            <hr />
+            <!-- Production Configuration -->
+            <h3 style="color:#2846c0">Production Configuration</h3>
+            <div class="input-group">
+                <label for="Production_Endpoint__c">Production Endpoint:</label>
+                <input type="text" id="Production_Endpoint__c" name="Production_Endpoint__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Production_Server_IPs__c">Production Server IPs:</label>
+                <input type="text" id="Production_Server_IPs__c" name="Production_Server_IPs__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Prod_Frontend_URL__c">Prod Frontend URL:</label>
+                <input type="text" id="Prod_Frontend_URL__c" name="Prod_Frontend_URL__c" required>
+            </div>
+            <div class="input-group">
+                <label for="Live_test_account__c">Live Test Account:</label>
+                <input type="text" id="Live_test_account__c" name="Live_test_account__c" required>
+            </div>
+            <div class="input-group">
+                <button type="submit" id="submit-button" enabled>Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="form.js"></script>
+</body>
+</html>
